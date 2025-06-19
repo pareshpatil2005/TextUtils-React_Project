@@ -1,19 +1,16 @@
-// import logo from './logo.svg';
 import { useState } from 'react';
 import './App.css';
 import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';     // this is how we can use router
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// JSX is a syntax extension for JavaScript that lets you write HTML-like code inside JavaScript, mainly used with React to describe what the UI should look like.
 
 function App() {
-  const [mode, setMode] = useState('light');   // Whether dark mode is enabled or not
+  const [mode, setMode] = useState('light');
 
-  const [alert, setAlert] = useState(null);    // alert is an object
+  const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
       setAlert({
@@ -27,48 +24,22 @@ function App() {
   }
 
 
-
-  // const removeBodyClasses = () => {
-  //   document.body.classList.remove('bg-light');
-  //   document.body.classList.remove('bg-dark');
-  //   document.body.classList.remove('bg-primary');
-  //   document.body.classList.remove('bg-danger');
-  //   document.body.classList.remove('bg-success');
-  //   document.body.classList.remove('bg-warning');
-  // }
-
-
   const toggleMode = () => {
-    // pass cls as an props
-    // removeBodyClasses();
-    // console.log(cls);
-    // document.body.classList.add('bg-'+cls);
-
     if(mode === "light"){
       setMode("dark");
       document.body.style.backgroundColor = "#343a40";
       showAlert("Dark mode has been enabled", "success");
-      // document.title = "TextUtils - Dark Mode";      // changing title dynamically
-      // setInterval(() => {
-      // document.title = "TextUtils is Amazing";
-      // }, 2000);
-      // setInterval(() => {
-      // document.title = "Install TextUtils Now";
-      // }, 1500);
+      
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled", "success");
-      // document.title = "TextUtils - Light Mode";
     }
   }
 
   return (
-
-
-    // Uncomment the following lines to enable routing with React Router
-    // Note: Make sure to install react-router-dom using npm or yarn before using it.
-
+    // Using BrowserRouter to enable routing in the application
+    // The Navbar, Alert, and TextForm components are wrapped inside BrowserRouter to enable routing
     <BrowserRouter>
       <Navbar
         title="TextUtils"
@@ -79,13 +50,6 @@ function App() {
       <Alert alert={alert} />
 
       <div className="container my-3">
-        {/* Navigation Links */}
-        {/* <nav>
-          <Link to="/" style={{ marginRight: "10px" }}>Home</Link>
-          <Link to="/about">About</Link>
-        </nav> */}
-
-
 
         {/* Routes */}
         <Routes>
@@ -103,35 +67,6 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
-
-
-
-
-    // Uncomment the following lines to use the components without routing
-
-    // <>
-    // <Navbar
-    //     title="TextUtils"
-    //     aboutText="About"
-    //     mode={mode}
-    //     toggleMode={toggleMode}
-    // />
-
-    // <Alert alert={alert} />
-
-    // <div className="container my-3">
-    //   <TextForm
-    //     heading="Enter the text to analyze below"
-    //     mode={mode}
-    //     showAlert={showAlert}
-    //   />
-
-    //   {/* <About /> */}
-
-    // </div>
-
-    // </>
-
 
   );
 }

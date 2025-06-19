@@ -4,7 +4,6 @@ import React, {useState} from 'react'
 export default function TextForm(props) {
 
   const handleUpClick = () => {
-    // console.log("Uppercase was clicked: " + text);
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("Converted to uppercase!", "success");
@@ -23,21 +22,15 @@ export default function TextForm(props) {
   }
   
   const handleOnChange = (event) => {
-    // console.log("On change");
     setText(event.target.value);
   }
   
   
   const handleCopy = () => {
-    var text = document.getElementById("myBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(text);
     props.showAlert("Copied to clipboard!", "success");
   }
   
-  
-  // Remove Extra Spaces
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "))
@@ -46,8 +39,6 @@ export default function TextForm(props) {
 
 
   const [text, setText] = useState('');
-  // text = "new text";  // Wrong way to change the state
-  // setText("new text");  // Correct way to change the state
   return (
     <>
       <div className="container" style={{color: props.mode==='dark'?'white':'black'}}>
