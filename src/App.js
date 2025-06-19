@@ -4,19 +4,43 @@ import './App.css';
 // import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
+import Alert from './components/Alert';
 
 // JSX is a syntax extension for JavaScript that lets you write HTML-like code inside JavaScript, mainly used with React to describe what the UI should look like.
 
 function App() {
   const [mode, setMode] = useState('light');   // Whether dark mode is enabled or not
 
+  const [alert, setAlert] = useState(null);    // alert is an object
+
+  const showAlert = (message, type) => {
+      setAlert({
+        msg: message,
+        type:type,
+      })
+
+      setTimeout(() => {
+        setAlert(null);
+      },2000);
+  }
+
   const toggleMode = () => {
     if(mode === "light"){
       setMode("dark");
       document.body.style.backgroundColor = "#343a40";
+      showAlert("Dark mode has been enabled", "success");
+      // document.title = "TextUtils - Dark Mode";      // changing title dynamically
+      // setInterval(() => {
+      // document.title = "TextUtils is Amazing";
+      // }, 2000);
+      // setInterval(() => {
+      // document.title = "Install TextUtils Now";
+      // }, 1500);
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
+      showAlert("Light mode has been enabled", "success");
+      // document.title = "TextUtils - Light Mode";
     }
   }
 
@@ -28,11 +52,16 @@ function App() {
         mode={mode}
         toggleMode={toggleMode}
       />
+      <Alert
+        alert={alert}
+      />
+
       <div className="container my-3">
 
         <TextForm 
           heading="Enter the text to analyze below"
           mode={mode}
+          showAlert={showAlert}
 
         />
 
