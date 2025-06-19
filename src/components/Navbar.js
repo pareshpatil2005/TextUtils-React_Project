@@ -46,7 +46,7 @@ Navbar.propTypes = {
 }
 
 // Specifies the default values for props:    // It is removed in react 19
-Navbar.defaultProps = {
-    title: 'Set title here',
-    aboutText: 'About'
-};
+// Navbar.defaultProps = {
+//     title: 'Set title here',
+//     aboutText: 'About'
+// };
