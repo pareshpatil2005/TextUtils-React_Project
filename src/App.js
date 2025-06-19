@@ -5,6 +5,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
+// import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 // JSX is a syntax extension for JavaScript that lets you write HTML-like code inside JavaScript, mainly used with React to describe what the UI should look like.
 
@@ -45,31 +46,71 @@ function App() {
   }
 
   return (
+
+
+    // Uncomment the following lines to enable routing with React Router
+    // Note: Make sure to install react-router-dom using npm or yarn before using it.
+
+    // <BrowserRouter>
+    //   <Navbar
+    //     title="TextUtils"
+    //     aboutText="About"
+    //     mode={mode}
+    //     toggleMode={toggleMode}
+    //   />
+    //   <Alert alert={alert} />
+
+    //   <div className="container my-3">
+    //     {/* Navigation Links */}
+    //     {/* <nav>
+    //       <Link to="/" style={{ marginRight: "10px" }}>Home</Link>
+    //       <Link to="/about">About</Link>
+    //     </nav> */}
+
+
+
+    //     {/* Routes */}
+    //     <Routes>
+    //       <Route
+    //         path="/"
+    //         element={
+    //           <TextForm
+    //             heading="Enter the text to analyze below"
+    //             mode={mode}
+    //             showAlert={showAlert}
+    //           />
+    //         }
+    //       />
+    //       <Route path="/about" element={<About />} />
+    //     </Routes>
+    //   </div>
+    // </BrowserRouter>
+
+
     <>
-      <Navbar 
+    <Navbar
         title="TextUtils"
         aboutText="About"
         mode={mode}
         toggleMode={toggleMode}
+    />
+
+    <Alert alert={alert} />
+
+    <div className="container my-3">
+      <TextForm
+        heading="Enter the text to analyze below"
+        mode={mode}
+        showAlert={showAlert}
       />
-      <Alert
-        alert={alert}
-      />
 
-      <div className="container my-3">
+      {/* <About /> */}
 
-        <TextForm 
-          heading="Enter the text to analyze below"
-          mode={mode}
-          showAlert={showAlert}
+    </div>
 
-        />
-
-        {/* <About
-
-        /> */}
-      </div>
     </>
+
+
   );
 }
 
