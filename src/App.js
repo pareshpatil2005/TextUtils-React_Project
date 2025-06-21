@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './App.css';
-import About from './components/About';
+// import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -40,7 +40,38 @@ function App() {
   return (
     // Using BrowserRouter to enable routing in the application
     // The Navbar, Alert, and TextForm components are wrapped inside BrowserRouter to enable routing
-    <BrowserRouter>
+    // <BrowserRouter>
+    //   <Navbar
+    //     title="TextUtils"
+    //     aboutText="About"
+    //     mode={mode}
+    //     toggleMode={toggleMode}
+    //   />
+    //   <Alert alert={alert} />
+
+    //   <div className="container my-3">
+
+    //     {/* Routes */}
+    //     <Routes>
+    //       <Route
+    //         path="/"
+    //         element={
+    //           <TextForm
+    //             heading="TextUtils – Word & Character Counter, Extra Space Remover, and More!"
+    //             mode={mode}
+    //             showAlert={showAlert}
+    //           />
+    //         }
+    //       />
+    //       <Route path="/about" element={<About mode={mode}/>} />
+    //     </Routes>
+    //   </div>
+    // </BrowserRouter>
+
+
+
+
+    <>
       <Navbar
         title="TextUtils"
         aboutText="About"
@@ -51,22 +82,17 @@ function App() {
 
       <div className="container my-3">
 
-        {/* Routes */}
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <TextForm
-                heading="TextUtils – Word & Character Counter, Extra Space Remover, and More!"
-                mode={mode}
-                showAlert={showAlert}
-              />
-            }
-          />
-          <Route path="/about" element={<About mode={mode}/>} />
-        </Routes>
+        <TextForm
+          heading="TextUtils – Word & Character Counter, Extra Space Remover, and More!"
+          mode={mode}
+          showAlert={showAlert}
+        />
+
       </div>
-    </BrowserRouter>
+
+      {/* <About mode={mode}/> */}
+
+    </>
 
   );
 }

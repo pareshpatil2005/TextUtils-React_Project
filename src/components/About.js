@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default function About(props) {
     let myStyle = {
         color: props.mode === 'dark'?'white':'#343a40',
